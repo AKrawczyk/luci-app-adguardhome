@@ -13,9 +13,17 @@
             }
         }
     },
-    "admin/services/adguardhome/status": {
+    "admin/services/adguardhome/dashboard": {
         "title": "Status",
         "order": 1,
+        "action": {
+            "type": "view",
+            "path": "adguardhome/dashboard"
+        }
+    },
+    "admin/services/adguardhome/status": {
+        "title": "Status",
+        "order": 11,
         "action": {
             "type": "view",
             "path": "adguardhome/status"
@@ -23,7 +31,7 @@
     },
     "admin/services/adguardhome/logs": {
         "title": "Logs",
-        "order": 11,
+        "order": 21,
         "action": {
             "type": "view",
             "path": "adguardhome/logs"
@@ -31,7 +39,7 @@
     },
     "admin/services/adguardhome/config": {
         "title": "Configuration",
-        "order": 21,
+        "order": 31,
         "action": {
             "type": "view",
             "path": "adguardhome/config"
