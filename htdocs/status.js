@@ -149,18 +149,6 @@ return view.extend({
 				E('div', { 'class': 'left' }, [
 					E('h2', _('AdGuard Home Status')),
 					this.render_status_table(status, agh_config)
-				]),
-				E('div', { 'class': 'left' }, [
-					E('h3', _('AdGuard Home Statistics')),
-					this.render_statistics_table(statistics)
-				]),
-				E('div', { 'class': 'left' }, [
-					E('h3', _('Top Queried Domains')),
-					this.render_top_queries_table(statistics)
-				]),
-				E('div', { 'class': 'left' }, [
-					E('h3', _('Top Blocked Domains')),
-					this.render_top_blocked_table(statistics)
 				])
 			]),
 		]);
