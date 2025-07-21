@@ -14,7 +14,7 @@
         }
     },
     "admin/services/adguardhome/dashboard": {
-        "title": "Status",
+        "title": "Dashboard",
         "order": 1,
         "action": {
             "type": "view",
