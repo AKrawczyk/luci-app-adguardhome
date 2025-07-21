@@ -127,7 +127,7 @@ case "$1" in
 
 			set_passwd)
 				# Check if bcrypt-tool is available for use:
-				check_if_empty "bcrypt-tool is missing." "$(whereis bcrypt-tool)"
+				# check_if_empty "bcrypt-tool is missing." "$(whereis bcrypt-tool)"
 				# Read and load the argument into JSON array:  
 				read input
 				json_load "$input"
