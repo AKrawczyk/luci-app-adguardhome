@@ -2,9 +2,34 @@
 
 **NOTE:** Original Source found for LUCI app [here](https://github.com/openwrt/luci/tree/3253c2644215a1ea8136199044e06ad5e4fd9de9/applications/luci-app-adguardhome) by Duncan Hill (<openwrt-dev@cricalix.net>).
 
-This LuCI app provides basic integration with the [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) [package](https://openwrt.org/packages/pkgdata/adguardhome) for OpenWrt. Note that the AdGuard Home package installation and configuration requires interaction with the OpenWrt command line; this app does not remove any of that interaction.
+This LuCI app provides basic integration with the [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) [package](https://openwrt.org/packages/pkgdata/adguardhome) for OpenWrt and OpenWrt with SNACBox installed. Note that the AdGuard Home package installation and configuration requires interaction with the OpenWrt command line; this app does not remove any of that interaction.
 
 See also: [AdGuard Home @ AdGuard](https://adguard.com/en/adguard-home/overview.html)
+
+## Using/installing this via command line
+
+First, install the AdGuard Home package - either via the web UI for software package management, or
+
+```
+opkg install adguardhome
+```
+
+If this is a default install of OpenWRT and ADGuardHome then install luci-app-adguardhome using the following
+
+```
+git clone https://github.com/AKrawczyk/luci-app-adguardhome.git
+cd luci-app-adguardhome/Default
+chomd +x install-luci-app-adguardhome.sh
+./install-luci-app-adguardhome.sh
+```
+If this is a SNACBox configured OpenWRT and ADGuardHome then install luci-app-adguardhome using the following
+
+```
+git clone https://github.com/AKrawczyk/luci-app-adguardhome.git
+cd luci-app-adguardhome/SNACBox
+chomd +x install-SNACBox-adguardhome.sh
+./install-SNACBox-adguardhome.sh
+```
 
 ## Using/installing this app
 
