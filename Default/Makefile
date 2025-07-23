@@ -42,8 +42,8 @@ define Package/luci-app-adguardhome/install
 	$(INSTALL_DIR) $(1)/usr/share/luci/menu.d/
 	$(INSTALL_DATA) ./usr/share/luci/menu.d/luci-app-adguardhome.json $(1)/usr/share/luci/menu.d/
 
-	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
-	$(INSTALL_DATA) ./usr/share/rpcd/luci-app-adguardhome.json $(1)/usr/share/rpcd/acl.d/
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d/
+	$(INSTALL_DATA) ./usr/share/rpcd/acl.d/luci-app-adguardhome.json $(1)/usr/share/rpcd/acl.d/
 endef
 
 $(eval $(call BuildPackage,luci-app-adguardhome))
