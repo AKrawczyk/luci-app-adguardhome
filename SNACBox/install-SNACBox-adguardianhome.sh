@@ -27,6 +27,16 @@ cp "$SRC_DIR/usr/share/luci/menu.d/luci-app-adguardhome.json" /usr/share/luci/me
 mkdir -p /usr/lib/lua/luci/controller/
 cp "$SRC_DIR/usr/lib/lua/luci/controller/snac.lua" /usr/lib/lua/luci/controller/
 
+# Create /etc/config/adguardhome with a config adguardhome section if missing
+grep -q ' config adguardhome' /etc/config/adguardhome 2>/dev/null || {
+    echo ' config adguardhome' >> /etc/config/adguardhome
+}
+
+# Create /etc/config/webguard with a config webguard section if missing
+grep -q ' config webguard' /etc/config/webguard 2>/dev/null || {
+    echo ' config webguard' >> /etc/config/webguard
+}
+
 echo "Restarted rpcd and reload LuCI:"
 /etc/init.d/rpcd restart
 /etc/init.d/uhttpd restart
