@@ -27,6 +27,11 @@ cp "$SRC_DIR/usr/share/luci/menu.d/luci-app-adguardhome.json" /usr/share/luci/me
 mkdir -p /usr/share/rpcd/acl.d/
 cp "$SRC_DIR/usr/share/rpcd/acl.d/luci-app-adguardhome.json" /usr/share/rpcd/acl.d/
 
+# Create /etc/config/adguardhome with a config adguardhome section if missing
+grep -q ' config adguardhome' /etc/config/adguardhome 2>/dev/null || {
+    echo ' config adguardhome' >> /etc/config/adguardhome
+}
+
 echo "Restarted rpcd and reload LuCI:"
 /etc/init.d/rpcd restart
 /etc/init.d/uhttpd restart
