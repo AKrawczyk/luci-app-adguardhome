@@ -9,7 +9,7 @@ return view.extend({
 		// powers the other UI pages needs a username and password to
 		// communicate with the AdguardHome REST API.
 		var s, o;
-		var m = new form.Map('adguardhome', _('AdGuard Home Configuration'),
+		var m = new form.Map('adguardhome', _('ADGuardHome Configuration'),
 			_('This application requires the username and password that were configured when you set up AdGuard Home, ' +
 			'as the REST API for AdGuard Home is password protected. The password cannot be read from the YAML ' +
 			'configuration file for AdGuard Home, as it is encrypted in that store. The credentials supplied here will ' +

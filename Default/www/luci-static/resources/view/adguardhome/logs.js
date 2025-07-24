@@ -24,7 +24,7 @@ return view.extend({
 		var loglines = logdata.trim().split(/\n/).reverse().slice(0, 50);
 
 		return E([], [
-			E('h2', {}, [_('System Log (AdGuard Home)')]),
+			E('h2', {}, [_('ADGuardHome System Logs')]),
 			E('div', {}, [_('Showing last 50 lines')]),
 			E('div', { 'id': 'content_syslog' }, [
 				E('textarea', {
