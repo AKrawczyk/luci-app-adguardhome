@@ -87,12 +87,16 @@ TFILE=/tmp/rpcd-adguardhome-$(date -Ins).tmp
 trap 'rm ${TFILE}; exit' EXIT
 read_config > ${TFILE}
 source ${TFILE}
-HOST="192.168.12.1"
+HOST=${http_address%:*}
+[[ "${HOST}" == "0.0.0.0" ]] && HOST=$(uci get network.lan.ipaddr)
 PORT=${http_address##*:}
 PROTO="http"
 if [[ "${tls_enabled}" == "true" ]]; then
 	PROTO="https"
+	HOST=${tls_server_name}
+	PORT=${tls_port_https}
 fi
+[[ -z "${http_address}" ]] && http_address=${bind_host}:${bind_port}
 
 ############################################################################################
 # Decision-making cade:
