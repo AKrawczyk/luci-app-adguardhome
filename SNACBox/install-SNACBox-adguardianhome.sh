@@ -19,10 +19,6 @@ mkdir -p /usr/libexec/rpcd/
 cp "$SRC_DIR/usr/libexec/rpcd/luci.adguardhome" /usr/libexec/rpcd/
 chmod +x /usr/libexec/rpcd/luci.adguardhome
 
-# 3. Install LuCI menu definition
-mkdir -p /usr/share/luci/menu.d/
-cp "$SRC_DIR/usr/share/luci/menu.d/luci-app-adguardhome.json" /usr/share/luci/menu.d/
-
 # 4. Install RPCD ACL (access control)
 mkdir -p /usr/lib/lua/luci/controller/
 cp "$SRC_DIR/usr/lib/lua/luci/controller/snac.lua" /usr/lib/lua/luci/controller/
