@@ -172,7 +172,7 @@ return view.extend({
                 E('div', { 'class': 'dashboard-card ' + card.colorClass }, [
                     E('div', { 'class': 'dashboard-card-value' }, card.value),
                     E('div', { 'class': 'dashboard-card-title' }, card.title),
-                    card.subtitle ? E('div', { 'class': 'dashboard-card-subtitle' }, card.subtitle) : null,
+                    card.subtitle ? E('div', { 'class': 'dashboard-card-subtitle' }, card.subtitle) : E('<br>'),
                     this.render_bar_sparkline(card.data, card.color)
                 ])
             )
@@ -183,18 +183,14 @@ return view.extend({
             return this.generic_failure(statistics.error)
         }
         const top_clients = statistics.top_clients.slice(0, 5);
-        var table = E('table', { 'class': 'dashboard-table', 'id': 'top_clients' });
-        table.appendChild(E('tr', {}, [
-            E('th', {}, _('Client')),
-            E('th', {}, _('Requests count'))
-        ]));
+        var table = E('table', { 'class': 'table', 'id': 'top_clients' });
         for (var i = 0; i < top_clients.length; i++) {
             const client = Object.keys(top_clients[i])[0];
             const count = Object.values(top_clients[i])[0];
             const percent = statistics.num_dns_queries > 0 ? ((count / statistics.num_dns_queries * 100).toFixed(2) + '%') : '';
             table.appendChild(E('tr', {}, [
-                E('td', {}, client),
-                E('td', {}, [count + (percent ? ' (' + percent + ')' : '')])
+                E('td', { 'class': 'td left', 'width': '33%' }, client),
+                E('td', { 'class': 'td left' }, [count + (percent ? ' (' + percent + ')' : '')])
             ]));
         }
         return table;
@@ -226,6 +222,13 @@ return view.extend({
 
         // Dashboard layout
         return E('div', { 'class': 'cbi-map', 'id': 'map' }, [
+            // Render all the status tables as one big block.
+			E('div', { 'class': 'cbi-section' }, [
+				E('div', { 'class': 'left' }, [
+					E('h2', _('ADGuardHome Dahsboard')),
+				])
+			]),
+            
             // Summary cards row
             this.render_summary_cards(statistics),
             // Main grid

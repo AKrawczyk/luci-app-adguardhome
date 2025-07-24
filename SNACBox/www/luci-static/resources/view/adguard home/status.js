@@ -147,7 +147,7 @@ return view.extend({
 		return E('div', { 'class': 'cbi-map', 'id': 'map' }, [
 			E('div', { 'class': 'cbi-section' }, [
 				E('div', { 'class': 'left' }, [
-					E('h2', _('AdGuard Home Status')),
+					E('h2', _('ADGuardHome Status')),
 					this.render_status_table(status, agh_config)
 				])
 			]),
