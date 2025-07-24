@@ -1,6 +1,6 @@
 {
     "admin/services/adguardhome": {
-        "title": "AdGuard Home",
+        "title": "ADGuardHome",
         "action": {
             "type": "firstchild"
         },
